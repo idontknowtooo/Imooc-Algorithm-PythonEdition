@@ -22,14 +22,14 @@ def selectionSort(alist): ### 找到未排序部分的最小值，将其与未�
         alist[i],alist[minposition]=alist[minposition],alist[i] ### 处于内层循环之外  ### 最小值与最小索引位置的 索引交换后，才执行这一步
     return alist
 
-def insertionSort(alist):
-    for i in range(1,len(alist)):
-        currentvalue=alist[i]
+def insertionSort(alist):### 将  正排序位置元素  与 已排序元素逐个比较，放到合适的位置  
+    for i in range(1,len(alist)):### 假设alist[0]为有序，i从1 开始  ###即，alist[:i-1]为已排序部分    alist[i]为正排序元素
+        currentvalue=alist[i] ### 外层循环指向  需要排序的位置
         position=i
-        while alist[position-1]>currentvalue and position>0:
-            alist[position]=alist[position-1]
+        while alist[position-1]>currentvalue and position>0:### 逐个（position）比较，满足条件即停止   ### 两元素，在 内层循环外 并互相交换
+            alist[position]=alist[position-1] ### 逐个比较，指向 前面 的 元素
             position=position-1
-        alist[position]=currentvalue
+        alist[position]=currentvalue ### 循环停止之后的 赋值  （与 交换元素的 区别）
     return alist
 
 def shellSort(alist):
