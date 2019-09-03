@@ -13,13 +13,13 @@ def bubbleSort(alist):
             break
     return alist
 
-def selectionSort(alist):
-    for i in range(len(alist)):
+def selectionSort(alist): ### 找到未排序部分的最小值，将其与未排序部分的最小索引位置的值交换
+    for i in range(len(alist)): ### 外层循环：已排序列表的计数器所在位置（minposition 此位置还未经排序）  
         minposition=i
-        for j in range(i,len(alist)):
+        for j in range(i,len(alist)): ### 内层循环：通过与 未排序列表的最小索引位置比较，来寻找未排序部分的最小值
             if alist[minposition]>alist[j]:
-                minposition=j
-        alist[i],alist[minposition]=alist[minposition],alist[i]
+                minposition=j  ### 每次遍历，只 交换一次
+        alist[i],alist[minposition]=alist[minposition],alist[i] ### 处于内层循环之外  ### 最小值与最小索引位置的 索引交换后，才执行这一步
     return alist
 
 def insertionSort(alist):
