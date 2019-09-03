@@ -29,7 +29,7 @@ def insertionSort(alist):### a. 将  正排序位置元素（当前值）  与 �
         while alist[position-1]>currentvalue and position>0:###d.  将当前值 逐个  与 前面的值（已排序） 比较
             alist[position]=alist[position-1] ### e. 如果 当前值 小于 已排序部分的这个位置的值，则将 这个值 向后 挪一位（第一次，不会覆盖当前值）
             position=position-1  ### f. 将 与当前值作比较的值的位置   更新  更小 索引位置 
-        alist[position]=currentvalue ### g 当前值找到合适位置，循环结束 ### h. 将当前值放到  合适的位置
+        alist[position]=currentvalue ### g 要么 当前值 大于 这个值，要么position<1，循环结束 ### h. 将当前值放到  合适的位置
     return alist
 
 def shellSort(alist):
