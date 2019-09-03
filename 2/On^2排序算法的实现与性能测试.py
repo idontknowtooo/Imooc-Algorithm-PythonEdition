@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+ -*- coding: utf-8 -*-
 from random import randint
 import timeit
 
@@ -22,14 +22,14 @@ def selectionSort(alist): ### 找到未排序部分的最小值，将其与未�
         alist[i],alist[minposition]=alist[minposition],alist[i] ### 内循环之外  ###  将最小值  与 最小索引位置元素  交换
     return alist
 
-def insertionSort(alist):### 将  正排序位置元素  与 已排序元素逐个比较，放到合适的位置  
-    for i in range(1,len(alist)):### 假设alist[0]为有序，i从1 开始  ###即，alist[:i-1]为已排序部分    alist[i]为正排序元素
-        currentvalue=alist[i] ### 外层循环指向  需要排序的位置
+def insertionSort(alist):### a. 将  正排序位置元素（当前值）  与 已排序元素逐个比较，放到合适的位置  
+    for i in range(1,len(alist)):### b.  alist[:i-1]为已排序部分  ,假设alist[0]为有序，i从1 开始   
+        currentvalue=alist[i] ### c. 外层循环 指向  当前值（正排序的元素 alist[i]）
         position=i
-        while alist[position-1]>currentvalue and position>0:### 逐个（position）比较，满足条件即停止   ### 两元素，在 内层循环外 并互相交换
-            alist[position]=alist[position-1] ### 逐个比较，指向 前面 的 元素
-            position=position-1
-        alist[position]=currentvalue ### 循环停止之后的 赋值  （与 交换元素的 区别）
+        while alist[position-1]>currentvalue and position>0:###d.  将当前值 逐个  与 前面的值（已排序） 比较
+            alist[position]=alist[position-1] ### e. 如果 当前值 小于 已排序部分的这个位置的值，则将 这个值 向后 挪一位（第一次，不会覆盖当前值）
+            position=position-1  ### f. 将 与当前值作比较的值的位置   更新  更小 索引位置 
+        alist[position]=currentvalue ### g 当前值找到合适位置，循环结束 ### h. 将当前值放到  合适的位置
     return alist
 
 def shellSort(alist):
